@@ -19,29 +19,52 @@
 
 @keyframes pops {
     0% {
-        margin-top: 100px;
-        margin-left: 100px;
-        height: 0;
-        width: 0;
+        transform: scale3d(.01,.01,.01);
     }
     100% {
-        margin-top: 0;
-        margin-left: 0;
-        height: 200px;
-        width: 200px;
+        transform: scale3d(1,1,1);
     }
 }
 @-webkit-keyframes pops {
     0% {
-        margin-top: 100px;
-        margin-left: 100px;
-        height: 0;
-        width: 0;
+        transform: scale3d(.01,.01,.01);
     }
     100% {
-        margin-top: 0;
-        margin-left: 0;
-        height: 200px;
-        width: 200px;
+        transform: scale3d(1,1,1);
+    }
+}
+
+@keyframes touchanimation {
+    0% {
+        transform: scale3d(1,1,1);
+    }
+    20% {
+        transform: scale3d(.1,.1,.1);
+    }
+    40% {
+        transform: scale3d(.5,.5,.5);
+    }
+    50% {
+        transform: scale3d(.1,.1,.1);
+    }
+    100% {
+        transform: scale3d(1,1,1);
+    }
+}
+@-webkit-keyframes touchanimation {
+    0% {
+        transform: scale3d(1,1,1);
+    }
+    20% {
+        transform: scale3d(.1,.1,.1);
+    }
+    40% {
+        transform: scale3d(.5,.5,.5);
+    }
+    50% {
+        transform: scale3d(.1,.1,.1);
+    }
+    100% {
+        transform: scale3d(1,1,1);
     }
 }

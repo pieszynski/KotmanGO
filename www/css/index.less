@@ -18,7 +18,7 @@ html, body {
 
 .a {
     top: 50px;
-    left: 100px
+    left: 100px;
 }
 .b {
     top: 50px;
@@ -38,7 +38,13 @@ html, body {
     z-index: 100;
     //height: 200px;
     //width: 200px;
-    .animation(pops 500ms ease 1.6s 1 normal forwards);
+}
+.platform-final {
+    height: 200px;
+    width: 200px;
+}
+.platform-pops {
+    .animation(pops 500ms ease 1.6s 1 normal);
 }
 .circle {
     border-radius: 50%;
@@ -49,4 +55,8 @@ html, body {
     position: absolute;
     //width: 250px;
     .animation(dline 500ms ease 1s 1 normal forwards);
+}
+
+.touchme {
+    .animation(touchanimation 500ms ease 0s 1 normal);
 }
