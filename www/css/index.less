@@ -16,13 +16,17 @@ html, body {
     overflow: hidden;
 }
 
+.hide {
+    display: none;
+}
+
 .a {
     top: 50px;
     left: 100px;
 }
 .b {
     top: 50px;
-    left: 350px;
+    left: 400px;
 }
 .c {
     top: 150px;
@@ -59,4 +63,16 @@ html, body {
 
 .touchme {
     .animation(touchanimation 500ms ease 0s 1 normal);
+}
+
+.arrow-down {
+    color: red;
+    position: absolute;
+    font-size: 100px;
+    top: 250px;
+    left: 450px;
+    z-index: 200;
+}
+.arrow-down-anim {
+    .animation(down-anim 2s ease 0s infinite normal);
 }

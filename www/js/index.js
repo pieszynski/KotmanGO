@@ -28,7 +28,8 @@ var simpleQuery = (function (document, undefined) {
     "use strict";
 
     var aSquare = $('.a'),
-        bCircle = $('.b');
+        bCircle = $('.b'),
+        dArrows = $('.arr');
 
     //$.cssAdd(aSquare, 'platform-pops');
     //$.cssAdd(bCircle, 'platform-pops');
@@ -50,6 +51,7 @@ var simpleQuery = (function (document, undefined) {
     function onAnimationTouchEnd(evt) {
         $.cssRemove(this, 'touchme');
         $.cssRemove(this, 'platform-pops');
+        $.cssRemove(dArrows, 'hide');
         //console.log('anim end', evt.animationName, evt, this);
     }
 
