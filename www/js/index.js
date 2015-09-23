@@ -9,6 +9,10 @@ var simpleQuery = (function (document, undefined) {
         obj.addEventListener(eventName, callback, false);
     }
 
+    $.off = function onRemoveEvent(obj, eventName, callback) {
+        obj.removeEventListener(eventName, callback, false);
+    }
+
     $.cssAdd = function onCssClassAdd(obj, cssClass) {
         obj.classList.add(cssClass);
     }
@@ -53,10 +57,32 @@ var simpleQuery = (function (document, undefined) {
         $.cssRemove(this, 'platform-pops');
         $.cssRemove(dArrows, 'hide');
         //console.log('anim end', evt.animationName, evt, this);
+
+        if (this === bCircle && 'pops' === evt.animationName) {
+            $.on(bCircle, 'click', circleMoveTouch);
+            $.on(bCircle, 'touchend', circleMoveTouch);
+        }
     }
 
     function onElementTouch(evt) {
         $.cssAdd(this, 'touchme');
+    }
+
+    var state = {
+        pos: 50,
+        add: 200
+    };
+
+    function circleMoveTouch(evt) {
+        state.pos = state.pos + state.add;
+        state.add = -state.add;
+
+        bCircle.style.top = state.pos + 'px';
+
+        if (100 < state.pos)
+            $.cssAdd(dArrows, 'arr-180');
+        else
+            $.cssRemove(dArrows, 'arr-180');
     }
 
 })(simpleQuery);
