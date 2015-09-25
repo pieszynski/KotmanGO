@@ -1,1 +1,23 @@
 @import 'prefixer.less';
+
+.keyframes (@name, @len, @rules) {
+    // definicja generatora styli animacji
+    @keyframes @name {
+        @rules();
+    }
+    @-webkit-keyframes @name {
+        @rules();
+    }
+    .anim-@{name} {
+        .animation(@name @len ease 0s 1 normal /*normal|forwards*/);
+    }
+};
+
+.keyframes (wid-anim, 501ms, {
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 200px;
+    }
+});

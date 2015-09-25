@@ -8,6 +8,9 @@
 @appBackColor: #FAFAFA;			// Color 50
 @appCardsColor: #FFFFFF; 		// White
 
+@platform-dim: 80;
+@platform-mar: 10;
+
 html, body {
 	background-color: @appBackColor;
     height: 100%;
@@ -15,4 +18,35 @@ html, body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+}
+
+.back-pane {
+    height: 100%;
+    position: relative;
+}
+.play-pane {
+    border: 1px solid black; // DEV
+    top: 50px;
+    left: 50px;
+    bottom: 50px;
+    right: 50px;
+    position: absolute;
+}
+
+.platform {
+    background-color: @appCardsColor;
+    border-radius: @platform-dim/2*1px;
+    .box-shadow(1px 1px 1px 2px @appStatusBarColor);
+    height: @platform-dim*1px;
+    margin: @platform-mar*1px;
+    position: absolute;
+    width: @platform-dim*1px;
+}
+.cat {
+    .platform();
+    .kotmango-icons {
+        font-size: 64px;
+        line-height: (@platform-dim - 10)*1px;
+    }
+    text-align: center;
 }
