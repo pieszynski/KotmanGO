@@ -41,19 +41,45 @@
     })
 };
 
+.ptxBase(@borderWidth) {
+    position: absolute;
+    .border-radius((@inactivePointSize+@borderWidth*2px)/2);
+    height: @inactivePointSize;
+    width: @inactivePointSize;
+}
+
 .ptx(@name, @x, @y) {
     .@{name} {
+        .ptxBase(1);
         border: 1px solid @borderColor;
         background-color: @borderColor;
-        position: absolute;
-        .border-radius((@inactivePointSize+2px)/2);
         left: @x*@segmentSize + @borderMargin - (@inactivePointSize+2px)/2;
         top: @y*@segmentSize + @borderMargin - (@inactivePointSize+2px)/2;
-        height: @inactivePointSize;
-        width: @inactivePointSize;
         z-index: 110;
     }
 }
+
+.marker {
+    .ptxBase(2);
+    border: 2px solid @markerBorderColor;
+    cursor: pointer;
+    z-index: 120;
+}
+.keyframes-inf(marker, 1s, {
+    50% {
+        transform: translate3d(0,0,0);
+        height: @inactivePointSize;
+        width: @inactivePointSize;
+        opacity: 1;
+    }
+    100% {
+        transform: translate3d(-10px,-10px,0);
+        .border-radius((@inactivePointSize+20px+2*2px)/2);
+        height: @inactivePointSize + 20px;
+        width: @inactivePointSize + 20px;
+        opacity: .001;
+    }
+});
 
 // linie
 

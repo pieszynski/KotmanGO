@@ -2,10 +2,13 @@
 @import 'prefixer.less';
 
 .keyframes (@name, @len, @rules) {
-    .keyframes(@name, @len, none, @rules);
+    .keyframes(@name, @len, none, 1, @rules);
+}
+.keyframes-inf (@name, @len, @rules) {
+    .keyframes(@name, @len, none, infinite, @rules);
 }
 
-.keyframes (@name, @len, @fillMode, @rules) {
+.keyframes (@name, @len, @fillMode, @times, @rules) {
     // definicja generatora styli animacji
     // @fillMode = none|forwards|...
     @keyframes @name {
@@ -15,6 +18,17 @@
         @rules();
     }
     .anim-@{name} {
-        .animation(@name @len ease 0s 1 @fillMode);
+        .animation(@name @len ease 0s @times @fillMode);
     }
 };
+
+// ----------------
+
+.keyframes(game-over, 1s, forwards, 1, {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+});
