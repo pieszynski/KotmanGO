@@ -1,0 +1,75 @@
+@import 'values.less';
+@import 'prefixer.less';
+@import 'kotmango.less';
+@import 'animations.less';
+
+// metody pomocnicze
+.lineX (@name, @x, @y, @width) {
+    .@{name} {
+        border-top: 1px solid @borderColor;
+        position: absolute;
+        left: @x*@segmentSize + @borderMargin;
+        top: @y*@segmentSize + @borderMargin;
+        width: @width*@segmentSize;
+        z-index: 100;
+    }
+    .keyframes(@name,500ms, {
+        0% {
+            width: 0;
+        }
+        100% {
+            width: @width*@segmentSize;
+        }
+    })
+};
+.lineY (@name, @x, @y, @height) {
+    .@{name} {
+        border-left: 1px solid @borderColor;
+        position: absolute;
+        left: @x*@segmentSize + @borderMargin;
+        top: @y*@segmentSize + @borderMargin;
+        height: @height*@segmentSize;
+        z-index: 100;
+    }
+    .keyframes(@name,500ms, {
+        0% {
+            height: 0;
+        }
+        100% {
+            height: @height*@segmentSize;
+        }
+    })
+};
+
+.ptx(@name, @x, @y) {
+    .@{name} {
+        border: 1px solid @borderColor;
+        background-color: @borderColor;
+        position: absolute;
+        .border-radius((@inactivePointSize+2px)/2);
+        left: @x*@segmentSize + @borderMargin - (@inactivePointSize+2px)/2;
+        top: @y*@segmentSize + @borderMargin - (@inactivePointSize+2px)/2;
+        height: @inactivePointSize;
+        width: @inactivePointSize;
+        z-index: 110;
+    }
+}
+
+// linie
+
+.lineX(line1, 0, 2, 3);
+.ptx(p11, 0, 2);
+.ptx(p12, 1, 2);
+.ptx(p13, 2, 2);
+.ptx(p14, 3, 2);
+
+.lineX(line2, 2, 0, 1);
+.ptx(p21, 2, 0);
+.ptx(p22, 3, 0);
+
+.lineY(line3, 3, 0, 2);
+.ptx(p31, 3, 1);
+
+.lineY(line4, 2, 2, 2);
+.ptx(p41, 2, 3);
+.ptx(p42, 2, 4);

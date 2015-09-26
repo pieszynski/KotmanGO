@@ -1,15 +1,9 @@
+@import 'values.less';
 @import 'prefixer.less';
 @import 'material.less';
 @import 'kotmango.less';
 @import 'animations.less';
-
-@appStatusBarColor: #E0E0E0; 	// Color 300
-@appBarColor: #F5F5F5; 			// Color 100
-@appBackColor: #FAFAFA;			// Color 50
-@appCardsColor: #FFFFFF; 		// White
-
-@platform-dim: 80;
-@platform-mar: 10;
+@import 'map.less';
 
 html, body {
 	background-color: @appBackColor;
@@ -41,12 +35,18 @@ html, body {
     margin: @platform-mar*1px;
     position: absolute;
     width: @platform-dim*1px;
+    z-index: 200;
 }
-.cat {
-    .platform();
-    .kotmango-icons {
-        font-size: 64px;
-        line-height: (@platform-dim - 10)*1px;
+.animal(@name) {
+    .@{name} {
+        .platform();
+        .kotmango-icons {
+            font-size: 45px;
+            line-height: (@platform-dim - 5)*1px;
+        }
+        text-align: center;
     }
-    text-align: center;
 }
+.animal(cat);
+.animal(dog);
+.animal(mouse);

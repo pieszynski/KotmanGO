@@ -1,7 +1,13 @@
+@import 'values.less';
 @import 'prefixer.less';
 
 .keyframes (@name, @len, @rules) {
+    .keyframes(@name, @len, none, @rules);
+}
+
+.keyframes (@name, @len, @fillMode, @rules) {
     // definicja generatora styli animacji
+    // @fillMode = none|forwards|...
     @keyframes @name {
         @rules();
     }
@@ -9,15 +15,6 @@
         @rules();
     }
     .anim-@{name} {
-        .animation(@name @len ease 0s 1 normal /*normal|forwards*/);
+        .animation(@name @len ease 0s 1 @fillMode);
     }
 };
-
-.keyframes (wid-anim, 501ms, {
-    0% {
-        width: 0px;
-    }
-    100% {
-        width: 200px;
-    }
-});
